@@ -35,10 +35,10 @@ pipeline {
                 '''
             }
         }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying...'
-                // Add your deploy steps here
+
+        post {
+            always {
+                junit 'test-results/junit.xml'
             }
         }
     }
